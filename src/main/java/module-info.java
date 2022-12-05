@@ -11,13 +11,17 @@ module com.example.demo {
     requires spring.boot.starter.logging;
     requires spring.web;
     requires org.slf4j;
-    requires com.google.gson;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
 
     exports ru.develop.weather;
     opens ru.develop.weather to javafx.fxml;
-    exports ru.develop.weather.scene;
-    opens ru.develop.weather.scene to javafx.fxml, com.google.gson;
+    exports ru.develop.weather.client;
+    opens ru.develop.weather.client to javafx.fxml, com.fasterxml.jackson.databind;
+
+    exports ru.develop.weather.client.dto.free7times.civillight;
+    opens ru.develop.weather.client.dto.free7times.civillight to javafx.fxml, com.fasterxml.jackson.databind;//com.google.gson;
+    exports ru.develop.weather.client.dto.free7times.civil;
+    opens ru.develop.weather.client.dto.free7times.civil to javafx.fxml, com.fasterxml.jackson.databind;
 }
